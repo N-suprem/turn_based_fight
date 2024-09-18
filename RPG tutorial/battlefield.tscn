@@ -1,0 +1,274 @@
+[gd_scene load_steps=15 format=3 uid="uid://bgkbmsa5owqvi"]
+
+[ext_resource type="Script" path="res://battlefield.gd" id="1_5inxc"]
+[ext_resource type="PackedScene" uid="uid://bkolnobdfpq71" path="res://character.tscn" id="1_hxlgx"]
+[ext_resource type="Texture2D" uid="uid://b84k15opr06lo" path="res://assets/tile_0084.png" id="2_tn1ko"]
+[ext_resource type="Texture2D" uid="uid://bvakdknyhgjrx" path="res://assets/tile_0109.png" id="3_2igw1"]
+[ext_resource type="Texture2D" uid="uid://b0626ykggj3f" path="res://assets/tile_0121.png" id="4_cr0de"]
+[ext_resource type="Texture2D" uid="uid://bkojswwo35ka1" path="res://assets/tile_0096.png" id="5_64vmo"]
+[ext_resource type="Texture2D" uid="uid://cuooiwd1705rg" path="res://assets/tile_0086.png" id="6_806d2"]
+[ext_resource type="Texture2D" uid="uid://csufp2vdhe060" path="res://assets/tile_0122.png" id="7_lyitk"]
+[ext_resource type="PackedScene" uid="uid://b0s6h415eqwko" path="res://selection_hand.tscn" id="8_nlylj"]
+[ext_resource type="LabelSettings" uid="uid://b13vip1ndjxat" path="res://new_label_settings.tres" id="10_0fy0v"]
+
+[sub_resource type="Gradient" id="Gradient_uambc"]
+colors = PackedColorArray(0.625491, 0.72991, 0.621442, 1, 0.378118, 0.599769, 0.333001, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4akcq"]
+gradient = SubResource("Gradient_uambc")
+
+[sub_resource type="Gradient" id="Gradient_mh767"]
+colors = PackedColorArray(0.246212, 0.472112, 0.503907, 1, 0.124013, 0.220914, 0.258867, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_54h1a"]
+gradient = SubResource("Gradient_mh767")
+
+[node name="battlefield" type="Node2D"]
+script = ExtResource("1_5inxc")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(575.826, 324.323)
+rotation = 1.5708
+scale = Vector2(2.53749, 1157.63)
+texture = SubResource("GradientTexture1D_4akcq")
+
+[node name="characters" type="Node2D" parent="."]
+
+[node name="Wizard" parent="characters" instance=ExtResource("1_hxlgx")]
+position = Vector2(200, 250)
+sprite = ExtResource("2_tn1ko")
+description = "Sorcerer with very powerful spells. His defense is not the best tho."
+type_1 = "mage"
+max_health = 150
+attack = 100.0
+defense = 70.0
+base_speed = 90
+attacks = ["healing spell", "frozen wind", "fire blast"]
+
+[node name="Cyclops" parent="characters" instance=ExtResource("1_hxlgx")]
+position = Vector2(350, 375)
+sprite = ExtResource("3_2igw1")
+description = "Brave humanoid trained to fight. Tough and strong."
+type_1 = "monster"
+type_2 = "warrior"
+max_health = 200
+attack = 85.0
+defense = 90.0
+base_speed = 40
+attacks = ["clubbing", "quick stroke", "bite"]
+
+[node name="Ghost" parent="characters" instance=ExtResource("1_hxlgx")]
+position = Vector2(500, 250)
+sprite = ExtResource("4_cr0de")
+description = "A ghoul opposing its death. It's not very strong but endures attacks as no one else."
+type_1 = "mage"
+type_2 = "monster"
+max_health = 190
+attack = 60.0
+defense = 120.0
+base_speed = 50
+attacks = ["healing spell", "energy draining", "frozen wind"]
+
+[node name="Knight" parent="characters" instance=ExtResource("1_hxlgx")]
+position = Vector2(650, 375)
+sprite = ExtResource("5_64vmo")
+description = "Faithful knight with a big weapon. His armature makes him slow, but also gives him a good endurance."
+type_1 = "warrior"
+max_health = 200
+attack = 75.0
+defense = 110.0
+base_speed = 20
+attacks = ["quick stroke", "defensive knock", "sword slash"]
+
+[node name="Monk" parent="characters" instance=ExtResource("1_hxlgx")]
+position = Vector2(800, 250)
+sprite = ExtResource("6_806d2")
+description = "Skilled fighter, resorts to natural energy to help enhance his moves."
+type_1 = "warrior"
+type_2 = "mage"
+max_health = 210
+attack = 80.0
+defense = 90.0
+base_speed = 75
+attacks = ["healing spell", "aura shock", "quick stroke", "karate kick"]
+
+[node name="Spider" parent="characters" instance=ExtResource("1_hxlgx")]
+position = Vector2(950, 375)
+sprite = ExtResource("7_lyitk")
+description = "A giant spider, slippery and fast, but not very powerfull."
+type_1 = "monster"
+max_health = 160
+attack = 70.0
+defense = 80.0
+base_speed = 100
+attacks = ["energy draining", "web trap", "bite"]
+
+[node name="selection_hand" parent="." instance=ExtResource("8_nlylj")]
+position = Vector2(200, 250)
+
+[node name="dialog" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1155.0
+offset_bottom = 649.0
+
+[node name="bottomBox" type="Sprite2D" parent="dialog"]
+position = Vector2(574, 572)
+rotation = 1.5708
+scale = Vector2(0.503937, 1098.25)
+texture = SubResource("GradientTexture1D_54h1a")
+
+[node name="bottomBoxLabel" type="Label" parent="dialog"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 519.0
+offset_right = 1113.0
+offset_bottom = 625.0
+text = "Here it will be the description and stats text of each character."
+label_settings = ExtResource("10_0fy0v")
+autowrap_mode = 2
+
+[node name="topBox" type="Sprite2D" parent="dialog"]
+position = Vector2(578, 87)
+rotation = 1.5708
+scale = Vector2(0.503937, 1098.25)
+texture = SubResource("GradientTexture1D_54h1a")
+
+[node name="topBoxLabel" type="Label" parent="dialog"]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 28.0
+offset_right = 1105.0
+offset_bottom = 146.0
+text = "Select 3 characters to be in your party; you'll fight against the other 3.
+Keep in ming that monsters have advantage against mages, mages against warriors, and warriors against monsters."
+label_settings = ExtResource("10_0fy0v")
+autowrap_mode = 2
+clip_text = true
+text_overrun_behavior = 4
+
+[node name="confirmButtons" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1156.0
+offset_bottom = 649.0
+
+[node name="NoBox" type="Sprite2D" parent="confirmButtons"]
+position = Vector2(1073.89, 474.168)
+rotation = 1.5708
+scale = Vector2(0.200079, 98.4341)
+texture = SubResource("GradientTexture1D_54h1a")
+
+[node name="YesBox" type="Sprite2D" parent="confirmButtons"]
+position = Vector2(1074.19, 412.168)
+rotation = 1.5708
+scale = Vector2(0.200079, 97.8396)
+texture = SubResource("GradientTexture1D_54h1a")
+
+[node name="YesLabel" type="Label" parent="confirmButtons"]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 394.0
+offset_right = 1111.0
+offset_bottom = 429.0
+text = "Yes"
+label_settings = ExtResource("10_0fy0v")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="NoLabel" type="Label" parent="confirmButtons"]
+layout_mode = 0
+offset_left = 1038.0
+offset_top = 456.0
+offset_right = 1114.0
+offset_bottom = 491.0
+text = "No"
+label_settings = ExtResource("10_0fy0v")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="attackButtons" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="0Box" type="Sprite2D" parent="attackButtons"]
+visible = false
+position = Vector2(1017.59, 478.533)
+rotation = 1.5708
+scale = Vector2(0.165975, 211.026)
+texture = SubResource("GradientTexture1D_54h1a")
+
+[node name="0Label" type="Label" parent="attackButtons"]
+visible = false
+layout_mode = 0
+offset_left = 914.0
+offset_top = 461.0
+offset_right = 1121.0
+offset_bottom = 496.0
+text = "Attack 1
+"
+label_settings = ExtResource("10_0fy0v")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="1Box" type="Sprite2D" parent="attackButtons"]
+visible = false
+position = Vector2(1017.56, 427.533)
+rotation = 1.5708
+scale = Vector2(0.165975, 211.103)
+texture = SubResource("GradientTexture1D_54h1a")
+
+[node name="1Label" type="Label" parent="attackButtons"]
+visible = false
+layout_mode = 0
+offset_left = 914.0
+offset_top = 410.0
+offset_right = 1121.0
+offset_bottom = 445.0
+text = "Attack 2
+"
+label_settings = ExtResource("10_0fy0v")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="2Box" type="Sprite2D" parent="attackButtons"]
+visible = false
+position = Vector2(1017.72, 376.533)
+rotation = 1.5708
+scale = Vector2(0.165975, 210.77)
+texture = SubResource("GradientTexture1D_54h1a")
+
+[node name="2Label" type="Label" parent="attackButtons"]
+visible = false
+layout_mode = 0
+offset_left = 914.0
+offset_top = 359.0
+offset_right = 1121.0
+offset_bottom = 394.0
+text = "Attack 3
+"
+label_settings = ExtResource("10_0fy0v")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="3Box" type="Sprite2D" parent="attackButtons"]
+visible = false
+position = Vector2(1018.01, 325.533)
+rotation = 1.5708
+scale = Vector2(0.165975, 210.198)
+texture = SubResource("GradientTexture1D_54h1a")
+
+[node name="3Label" type="Label" parent="attackButtons"]
+visible = false
+layout_mode = 0
+offset_left = 915.0
+offset_top = 308.0
+offset_right = 1121.0
+offset_bottom = 343.0
+text = "Attack 4"
+label_settings = ExtResource("10_0fy0v")
+horizontal_alignment = 1
+autowrap_mode = 2

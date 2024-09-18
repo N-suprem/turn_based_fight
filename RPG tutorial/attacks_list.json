@@ -1,0 +1,110 @@
+{
+	"bite":{
+		"type": "monster",
+		"description": "A bite using the natural strength of their maw.",
+		"damage": 50,
+		"healing": 0,
+		"is fast": false,
+		"is slow": false,
+		"is masive": false
+	},
+	"fire blast":{
+		"type": "mage",
+		"description": "This spell causes an explosion targeting one enemy.",
+		"damage": 50,
+		"healing": 0,
+		"is fast": false,
+		"is slow": false,
+		"is masive": false
+	},
+	"karate kick":{
+		"type": "warrior",
+		"description": "Hits an enemy using their martial habilities.",
+		"damage": 50,
+		"healing": 0,
+		"is fast": false,
+		"is slow": false,
+		"is masive": false
+	},
+	"sword slash":{
+		"type": "warrior",
+		"description": "Swims arround their heavy sword, damaging all the enemies.",
+		"damage": 30,
+		"healing": 0,
+		"is fast": false,
+		"is slow": true,
+		"is masive": true
+	},
+	"clubbing":{
+		"type": "monster",
+		"description": "Swims arround their heavy club, damaging all the enemies.",
+		"damage": 30,
+		"healing": 0,
+		"is fast": false,
+		"is slow": true,
+		"is masive": true
+	},
+	"web trap":{
+		"type": "monster",
+		"description": "Coves the enemy field with a spider web that deals damage at the end of the turn.",
+		"damage": 35,
+		"healing": 0,
+		"is fast": false,
+		"is slow": true,
+		"is masive": true
+	},
+	"aura shock":{
+		"type": "mage",
+		"description": "Meditates to free an energy blow at the end of the turn that will hit all the enemies.",
+		"damage": 30,
+		"healing": 0,
+		"is fast": false,
+		"is slow": true,
+		"is masive": true
+	},
+	"quick stroke":{
+		"type": "warrior",
+		"description": "Attacks quickly with their weapon; it's not very powerfull but it will hit early in the turn.",
+		"damage": 35,
+		"healing": 0,
+		"is fast": true,
+		"is slow": false,
+		"is masive": false
+	},
+	"healing spell":{
+		"type": "mage",
+		"description": "The user can choose to heal themself or any of their allies.",
+		"damage": 0,
+		"healing": 60,
+		"is fast": true,
+		"is slow": false,
+		"is masive": false
+	},
+	"frozen wind":{
+		"type": "mage",
+		"description": "A frosty spell that hits all the enemies.",
+		"damage": 25,
+		"healing": 0,
+		"is fast": false,
+		"is slow": false,
+		"is masive": true
+	},
+	"energy draining":{
+		"type": "monster",
+		"description": "Absorbs their enemy energy, recovering a bit of health points.",
+		"damage": 30,
+		"healing": 30,
+		"is fast":false,
+		"is slow": false,
+		"is masive": false
+	},
+	"defensive knock":{
+		"type": "warrior",
+		"description": "Does not hit hard, but adopts a defensive position that gives them a few health points.",
+		"damage": 30,
+		"healing": 30,
+		"is fast":false,
+		"is slow": false,
+		"is masive": false
+	},
+}

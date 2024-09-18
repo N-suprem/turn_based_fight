@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0s6h415eqwko"]
+
+[ext_resource type="Texture2D" uid="uid://7sut68kbta2a" path="res://assets/tile_0198.png" id="1_jirt2"]
+
+[sub_resource type="Animation" id="Animation_qlrv3"]
+resource_name = "iddle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-60, 3), Vector2(-60, -3), Vector2(-60, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_d0y0x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-60, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_meoug"]
+_data = {
+"RESET": SubResource("Animation_d0y0x"),
+"iddle": SubResource("Animation_qlrv3")
+}
+
+[node name="selection hand" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-60, 3)
+scale = Vector2(2, 2)
+texture = ExtResource("1_jirt2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_meoug")
+}
+autoplay = "iddle"
